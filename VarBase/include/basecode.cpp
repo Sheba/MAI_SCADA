@@ -1,4 +1,11 @@
 //code
+struct dll
+{
+  string name;
+  string value;
+  string type;
+};
+
 class var
 {
    string name;
@@ -15,14 +22,14 @@ public:
 
 class library
 {
-    //сюда сунь свой вектор
+    vector <dll> libr;//сюда сунь свой вектор -> сунул сюда свой вектор
 public:
     library(){}
-    int create(string name){}
-    int find(string name){}
-    int del(string name){}
-    int load(){}
-    int save(){}
-    int write(string name){}
-    int read(string name){}
+    int create(string name){return 0;}
+    int find(string name){return 0;}
+    int del(string name){return 0;}
+    int load(){return 0;}
+    int save(){return 0;}
+    int write(string name){return 0;}
+    int read(string name){return 0;}
 };
