@@ -12,3 +12,17 @@ public:
    void settype(string ntype){type=ntype;}
    void setvalue(string nvalue){value=nvalue;}
 };
+
+class library
+{
+    //сюда сунь свой вектор
+public:
+    library(){}
+    int create(string name){}
+    int find(string name){}
+    int del(string name){}
+    int load(){}
+    int save(){}
+    int write(string name){}
+    int read(string name){}
+};
