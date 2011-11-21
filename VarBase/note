@@ -3,3 +3,5 @@
 Тесты для основных функций - test/testfile.cpp
 Диаграмма классов - diagram.png
 Библиотечный файл - include/basecode.h
+21.11.2011:
+Main файл - src/main.cpp
