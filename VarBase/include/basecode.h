@@ -7,35 +7,35 @@ using namespace std;
 
 struct dll
 {
-  string name;
-  string value;
-  string type;
+  string Name;
+  string Value;
+  string Type;
 };
 
-class var
+class Var //переменная
 {
-   string name;
-   string value;
-   string type;
+   string mName;
+   string mValue;
+   string mType;
 public:
-   var(string nname)//{name=nname;}
-   string gettype()//{return type;}
-   string getname()//{return name;}
-   string getvalue()//{return value;}
-   void settype(string ntype)//{type=ntype;}
-   void setvalue(string nvalue)//{value=nvalue;}
+   Var(string newName)//{name=nname;}
+   string getType()//{return type;}
+   string getName()//{return name;}
+   string getValue()//{return value;}
+   void setType(string nweType)//{type=ntype;}
+   void setValue(string newValue)//{value=nvalue;}
 };
 
-class library
+class Library //библиотека
 {
-    vector <dll> libr;//сюда сунь свой вектор -> сунул сюда свой вектор
+    vector <dll> Libr;//вектор переменных
 public:
-    library(){}
-    int create(string name)//{return 0;}
-    int find(string name)//{return 0;}
-    int del(string name)//{return 0;}
-    int load()//{return 0;}
-    int save()//{return 0;}
-    int write(string name)//{return 0;}
-    int read(string name)//{return 0;}
+    Library(){}
+    int Create(string Name)//{return 0;}
+    int Find(string Name)//{return 0;}
+    int Delete(string Name)//{return 0;}
+    int Load()//{return 0;}
+    int Save()//{return 0;}
+    int Write(string Name)//{return 0;}
+    int Read(string Name)//{return 0;}
 };

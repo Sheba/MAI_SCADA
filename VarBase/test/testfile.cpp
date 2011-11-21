@@ -1,28 +1,28 @@
 //tests
-library lib = new library();
-lib.create("");
-string varname=””;
+Library testLib = new Library();
+testLib.Create("");
+string mVarName=””;
 
-int testaddvar()
+int TestAddVar()
 {
-   if(lib.find(varname)==-1)
+   if(testLib.Find(mVarName)==-1)
    {
-if(lib.create(varname))return 1;
-return 0;
+      if(testLib.Create(mVarName))return 1;
+      return 0;
    }
    return 0;
 }
 
-int testread()
+int TestReadVar()
 {
-   int val=42;
-   if(lib.read(varname)==val) return 0;
+   int mVal=42;
+   if(testLib.Read(mVarName)==mVal) return 0;
    else return 1;
 }
 
-int testwrite()
+int TestWriteVar()
 {
-   int val=42;
-   if(lib.write(varname)==0)return 0;
+   int mVal=42;
+   if(testLib.Write(mVarName)==0)return 0;
    else return 0;
 }
