@@ -14,7 +14,7 @@ public:
     string getName();
 };
 
-class IntVar: Var
+class IntVar: Var //целочисленная переменная
 {
     int mValue;
 public:
@@ -22,7 +22,7 @@ public:
     void setValue(int newValue);
 }
 
-class StringVar: Var
+class StringVar: Var  //строковая переменная
 {
     string mValue;
 public:
@@ -30,7 +30,7 @@ public:
     void setValue(string newValue);
 }
 
-class DoubleVar: Var
+class DoubleVar: Var //переменная с плавующей точкой
 {
     double mValue;
 public:
@@ -43,10 +43,10 @@ class Library //библиотека
     vector <Var> Libr;//вектор переменных
 public:
     Library(){}
-    int Create(string Name, string beginValue);
-    int Create(string Name, double beginValue);
-    int Create(string Name, int beginValue);
-    int Find(string Name);
+    Var* Create(string Name, string beginValue);
+    Var* Create(string Name, double beginValue);
+    Var* Create(string Name, int beginValue);
+    Var* Find(string Name);
     int Delete(string Name);
     int Load();
     int Save();
