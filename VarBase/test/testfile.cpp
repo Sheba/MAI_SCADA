@@ -1,28 +1,29 @@
 //tests
 Library testLib = new Library();
 testLib.Create("testn","testv");
-string mVarName="testn";
+testLib.Create("1",(int)1);
+string mVarName="testn1";
 
 int TestAddVar()
 {
-   if(testLib.Find(mVarName)==-1)
+   if(testLib.Find(mVarName)==NULL)
    {
-      if(testLib.Create(mVarName))return 1;
+      if(testLib.Create(mVarName,8)==NULL)return 1;
       return 0;
    }
    return 0;
 }
 
-int TestReadVar()
+int TestFindVar()
 {
-   int mVal=42;
-   if(testLib.Read(mVarName)==mVal) return 0;
-   else return 1;
+    if(testLib.Find("1")==NULL)return 1;
+    return 0;
 }
 
-int TestWriteVar()
+int TestDeleteVar()
 {
-   int mVal=42;
-   if(testLib.Write(mVarName)==0)return 0;
-   else return 0;
+    testLib.Create("2",(int)2);
+    if(testLib.Delete("2")==1)return 1;
+    if(testLib.Find("2"))return 1;
+    return 0;
 }
