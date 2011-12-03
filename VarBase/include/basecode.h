@@ -40,7 +40,7 @@ public:
 
 class Library //библиотека
 {
-    vector <Var> Libr;//вектор переменных
+    vector <Var*> libr;//вектор переменных
 public:
     Library(){}
     Var* Create(string Name, string beginValue);
