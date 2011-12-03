@@ -47,26 +47,38 @@ void DoubleVar::setValue(double newValue)
 
 Var* Library::Create(string Name, double beginValue)
 {
-    DoubleVar *doublevar= new Var(Name);
-    doublevar->setValue(beginValue);
-    libr.push_back(doublevar);
-    return libr[libr.size()-1];
+    if(Find(Name))
+    { 
+        DoubleVar *doublevar= new Var(Name);  
+        doublevar->setValue(beginValue);
+        libr.push_back(doublevar);
+        return libr[libr.size()-1];
+    }
+    else return 0;
 }
 
 Var* Library::Create(string Name, int beginValue)
 {
-    IntVar *integervar= new Var(Name);
-    integervar->setValue(beginValue);
-    libr.push_back(integervar);
-    return libr[libr.size()-1];
+    if(Find(Name))
+    {
+        IntVar *integervar= new Var(Name);
+        integervar->setValue(beginValue);
+        libr.push_back(integervar);
+        return libr[libr.size()-1];
+    }
+    else return 0;
 }
 
 Var* Library::Create(string Name, string beginValue)
 {
-    StringVar *stringvar=new Var(Name);
-    stringvar->setValue(beginValue);
-    libr.push_back(stringvar);
-    return libr[libr.size()-1];
+    if(Find(Name))
+    {   
+        StringVar *stringvar=new Var(Name);
+        stringvar->setValue(beginValue);
+        libr.push_back(stringvar);
+        return libr[libr.size()-1];
+    }
+    else return 0;
 }
 
 int Library::Delete(string Name)
