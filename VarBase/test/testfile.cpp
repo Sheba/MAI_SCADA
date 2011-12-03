@@ -1,7 +1,7 @@
 //tests
 Library testLib = new Library();
-testLib.Create("");
-string mVarName=””;
+testLib.Create("testn","testv");
+string mVarName="testn";
 
 int TestAddVar()
 {
