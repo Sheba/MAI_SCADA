@@ -7,18 +7,35 @@ using namespace std;
 
 class Var //переменная
 {
-   string mName;
+    string mName;
 public:
-   Var(string newName)
-   Var* getType()
-   string getName()
+    Var(string newName);
+    Var* getType();
+    string getName();
 };
 
 class IntVar: Var
 {
-    int Value;
+    int mValue;
 public:
-    int getValue()
+    int getValue();
+    void setValue(int newValue);
+}
+
+class StringVar: Var
+{
+    string mValue;
+public:
+    string getValue();
+    void setValue(string newValue);
+}
+
+class DoubleVar: Var
+{
+    double mValue;
+public:
+    double getValue();
+    void setValue(double newValue);
 }
 
 class Library //библиотека
@@ -26,11 +43,11 @@ class Library //библиотека
     vector <Var> Libr;//вектор переменных
 public:
     Library(){}
-    int Create(string Name, string beginvalue)
-    int Create(string Name, double beginvalue)
-    int Create(string Name, int beginvalue)
-    int Find(string Name)
-    int Delete(string Name)
-    int Load()
-    int Save()
+    int Create(string Name, string beginValue);
+    int Create(string Name, double beginValue);
+    int Create(string Name, int beginValue);
+    int Find(string Name);
+    int Delete(string Name);
+    int Load();
+    int Save();
 };
