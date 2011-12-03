@@ -49,35 +49,60 @@ Var* Library::Create(string Name, double beginValue)
 {
     DoubleVar *doublevar= new Var(Name);
     doublevar->setValue(beginValue);
-    //добавление в вектор
+    libr.push_back(doublevar);
+    return libr[libr.size()-1];
 }
 
 Var* Library::Create(string Name, int beginValue)
 {
     IntVar *integervar= new Var(Name);
     integervar->setValue(beginValue);
-    //добавление в вектор
+    libr.push_back(integervar);
+    return libr[libr.size()-1];
 }
 
 Var* Library::Create(string Name, string beginValue)
 {
     StringVar *stringvar=new Var(Name);
     stringvar->setValue(beginValue);
-    //добавление в вектор
+    libr.push_back(stringvar);
+    return libr[libr.size()-1];
 }
 
 int Library::Delete(string Name)
 {
-    //поиск в векторе
-    //удаление из вектора
-    //возврат 0, иначе
-    return 1;
+    int i,tem=0;
+    for(i=0;i<libr.size();i++)
+    { 
+        if(libr[i]->mName==Name) 
+        {
+            tem=0;
+            break;
+        }
+        else tem=1;
+    }
+    if(tem) return 1;
+    vector <Var*>::iterator j;
+    j=libr.begin();
+    for(i=0;i<libr.size();i++) j++;
+    libr.erase(j);
+    return 0;
 }
 
 Var* Library::Find(string Name)
 {
-    //поиск в векторе
-    return null;
+    int i,tem=0;
+    for(i=0;i<libr.size();i++)
+    { 
+        if(libr[i]->mName==Name) 
+        {
+            tem=0;
+            break;
+        }
+        else tem=1;
+    }
+    if(tem) return 0;
+    return libr[i];
 }
 
 int Library::Load()
