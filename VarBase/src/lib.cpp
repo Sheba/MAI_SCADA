@@ -1,11 +1,23 @@
 #include"../include/basecode.h"
 
-Var::Var(string newName)
+DoubleVar::DoubleVar(string newName)
+{
+    this->mName=newName;
+}
+Var::Var()
+{
+    //this->mName=newName;
+}
+IntVar::IntVar(string newName)
+{
+    this->mName=newName;
+}
+StringVar::StringVar(string newName)
 {
     this->mName=newName;
 }
 
-Var::getType()
+Var* Var::getType()
 {
     return this;
 }
@@ -49,7 +61,7 @@ Var* Library::Create(string Name, double beginValue)
 {
     if(Find(Name))
     { 
-        DoubleVar *doublevar= new Var(Name);  
+        DoubleVar *doublevar= new DoubleVar(Name);
         doublevar->setValue(beginValue);
         libr.push_back(doublevar);
         return libr[libr.size()-1];
@@ -61,7 +73,7 @@ Var* Library::Create(string Name, int beginValue)
 {
     if(Find(Name))
     {
-        IntVar *integervar= new Var(Name);
+        IntVar *integervar= new IntVar(Name);
         integervar->setValue(beginValue);
         libr.push_back(integervar);
         return libr[libr.size()-1];
@@ -73,7 +85,7 @@ Var* Library::Create(string Name, string beginValue)
 {
     if(Find(Name))
     {   
-        StringVar *stringvar=new Var(Name);
+        StringVar *stringvar=new StringVar(Name);
         stringvar->setValue(beginValue);
         libr.push_back(stringvar);
         return libr[libr.size()-1];
@@ -83,10 +95,11 @@ Var* Library::Create(string Name, string beginValue)
 
 int Library::Delete(string Name)
 {
-    int i,tem=0;
+    unsigned int i;
+    int tem=0;
     for(i=0;i<libr.size();i++)
     { 
-        if(libr[i]->mName==Name) 
+        if(libr[i]->getName()==Name)
         {
             tem=0;
             break;
@@ -103,10 +116,11 @@ int Library::Delete(string Name)
 
 Var* Library::Find(string Name)
 {
-    int i,tem=0;
+    unsigned int i;
+    int tem=0;
     for(i=0;i<libr.size();i++)
     { 
-        if(libr[i]->mName==Name) 
+        if(libr[i]->getName()==Name)
         {
             tem=0;
             break;
