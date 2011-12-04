@@ -9,7 +9,7 @@ class Var //переменная
 {
 protected: string mName;
 public:
-    Var();
+    //Var();
     Var* getType();
     string getName();
 };
