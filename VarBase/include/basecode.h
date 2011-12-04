@@ -7,9 +7,9 @@ using namespace std;
 
 class Var //переменная
 {
-protected: string mName;
+protected:
+    string mName;
 public:
-    //Var();
     Var* getType();
     string getName();
 };
@@ -42,9 +42,10 @@ public:
 };
 
 class Library //библиотека
-{
-    vector <Var*> libr;//вектор переменных
+{    
 public:
+    vector <Var*> libr;//вектор переменных
+//public:
     Library(){}
     Var* Create(string Name, string beginValue);
     Var* Create(string Name, double beginValue);
