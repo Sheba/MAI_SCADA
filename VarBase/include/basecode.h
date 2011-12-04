@@ -7,36 +7,39 @@ using namespace std;
 
 class Var //переменная
 {
-    string mName;
+protected: string mName;
 public:
-    Var(string newName);
+    Var();
     Var* getType();
     string getName();
 };
 
-class IntVar: Var //целочисленная переменная
+class IntVar:protected Var //целочисленная переменная
 {
     int mValue;
 public:
+    IntVar(string newName);
     int getValue();
     void setValue(int newValue);
-}
+};
 
-class StringVar: Var  //строковая переменная
+class StringVar:protected Var  //строковая переменная
 {
     string mValue;
 public:
+    StringVar(string newName);
     string getValue();
     void setValue(string newValue);
-}
+};
 
-class DoubleVar: Var //переменная с плавующей точкой
+class DoubleVar:protected Var //переменная с плавующей точкой
 {
     double mValue;
 public:
+    DoubleVar(string newName);
     double getValue();
     void setValue(double newValue);
-}
+};
 
 class Library //библиотека
 {
