@@ -62,7 +62,7 @@ void DoubleVar::setValue(double newValue)
 
 Var* Library::Create(string Name, double beginValue)
 {
-    if(Find(Name))
+    if(!Find(Name))
     { 
         DoubleVar *doublevar= new DoubleVar(Name);
         doublevar->setValue(beginValue);
@@ -74,7 +74,7 @@ Var* Library::Create(string Name, double beginValue)
 
 Var* Library::Create(string Name, int beginValue)
 {
-    if(Find(Name))
+    if(!Find(Name))
     {
         IntVar *integervar= new IntVar(Name);
         integervar->setValue(beginValue);
@@ -86,7 +86,7 @@ Var* Library::Create(string Name, int beginValue)
 
 Var* Library::Create(string Name, string beginValue)
 {
-    if(Find(Name))
+    if(!Find(Name))
     {   
         StringVar *stringvar=new StringVar(Name);
         stringvar->setValue(beginValue);
@@ -99,7 +99,7 @@ Var* Library::Create(string Name, string beginValue)
 int Library::Delete(string Name)
 {
     unsigned int i;
-    int tem=0;
+    int tem=1;
     for(i=0;i<libr.size();i++)
     { 
         if(libr[i]->getName()==Name)
@@ -112,7 +112,8 @@ int Library::Delete(string Name)
     if(tem) return 1;
     vector <Var*>::iterator j;
     j=libr.begin();
-    for(i=0;i<libr.size();i++) j++;
+    for(int k=0;k<i;k++)
+        j++;
     libr.erase(j);
     return 0;
 }
@@ -120,7 +121,7 @@ int Library::Delete(string Name)
 Var* Library::Find(string Name)
 {
     unsigned int i;
-    int tem=0;
+    int tem=1;
     for(i=0;i<libr.size();i++)
     { 
         if(libr[i]->getName()==Name)
