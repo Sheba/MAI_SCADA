@@ -1,6 +1,5 @@
 //tests
-#include "../test/testfile.cpp"
-#include "lib.cpp"
+#include "../src/lib.cpp"
 #include<iostream>
 Library testLib = new Library();
 testLib.Create("testn","testv");

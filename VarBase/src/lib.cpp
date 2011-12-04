@@ -63,7 +63,7 @@ Var* Library::Create(string Name, double beginValue)
     { 
         DoubleVar *doublevar= new DoubleVar(Name);
         doublevar->setValue(beginValue);
-        libr.push_back(doublevar);
+        libr.push_back((Var*)doublevar);
         return libr[libr.size()-1];
     }
     else return 0;
@@ -75,7 +75,7 @@ Var* Library::Create(string Name, int beginValue)
     {
         IntVar *integervar= new IntVar(Name);
         integervar->setValue(beginValue);
-        libr.push_back(integervar);
+        libr.push_back((Var*)integervar);
         return libr[libr.size()-1];
     }
     else return 0;
@@ -87,7 +87,7 @@ Var* Library::Create(string Name, string beginValue)
     {   
         StringVar *stringvar=new StringVar(Name);
         stringvar->setValue(beginValue);
-        libr.push_back(stringvar);
+        libr.push_back((Var*)stringvar);
         return libr[libr.size()-1];
     }
     else return 0;
