@@ -1,9 +1,7 @@
 //tests
 #include "../src/lib.cpp"
-#include<iostream>
-Library testLib = new Library();
-testLib.Create("testn","testv");
-testLib.Create("1",(int)1);
+//#include<iostream>
+Library testLib;
 string mVarName="testn1";
 
 int TestAddVar()
@@ -32,6 +30,8 @@ int TestDeleteVar()
 
 int main()
 {
+    testLib.Create("testn","testv");
+    testLib.Create("1",(int)1);
     if(!TestAddVar())std::cout<<"add error/n";
     if(!TestFindVar())std::cout<<"find error/n";
     if(!TestDeleteVar())std::cout<<"delete error/n";

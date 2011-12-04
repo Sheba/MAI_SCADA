@@ -4,10 +4,10 @@ DoubleVar::DoubleVar(string newName)
 {
     this->mName=newName;
 }
-Var::Var()
+/*Var::Var()
 {
     //this->mName=newName;
-}
+}*/
 IntVar::IntVar(string newName)
 {
     this->mName=newName;
