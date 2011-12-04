@@ -31,8 +31,11 @@ int main()
 {
     testLib.Create("testn","testv");
     testLib.Create("1",(int)1);
-    if(!TestAddVar()) std::cout<<"add error/n";
-    if(!TestFindVar()) std::cout<<"find error/n";
-    if(!TestDeleteVar()) std::cout<<"delete error/n";
+    if(TestAddVar()) std::cout<<"add error\n";
+    else std::cout<<"non add error\n";
+    if(TestFindVar()) std::cout<<"find error\n";
+    else std::cout<<"non find error\n";
+    if(TestDeleteVar()) std::cout<<"delete error\n";
+    else std::cout<<"non delete error\n";
     return 0;
 }
