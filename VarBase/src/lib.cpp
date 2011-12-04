@@ -5,11 +5,6 @@ DoubleVar::DoubleVar(string newName)
     this->mName=newName;
 }
 
-/*Var::Var()
-{
-    //this->mName=newName;
-}*/
-
 IntVar::IntVar(string newName)
 {
     this->mName=newName;
@@ -98,7 +93,7 @@ Var* Library::Create(string Name, string beginValue)
 
 int Library::Delete(string Name)
 {
-    unsigned int i;
+    unsigned int i,k;
     int tem=1;
     for(i=0;i<libr.size();i++)
     { 
@@ -112,8 +107,7 @@ int Library::Delete(string Name)
     if(tem) return 1;
     vector <Var*>::iterator j;
     j=libr.begin();
-    for(int k=0;k<i;k++)
-        j++;
+    for(k=0;k<i;k++) j++;
     libr.erase(j);
     return 0;
 }
