@@ -1,11 +1,8 @@
 4ый вариант: Аносов(cosmovolk@gmail.com), Петушков(dakil-nae@yandex.ru)
-20.11.2011:
 Тесты для основных функций - test/testfile.cpp
 Диаграмма классов - diagram.png
 Библиотечный файл - include/basecode.h
-21.11.2011:
-Файл проверки тестов - src/main.cpp
-3.12.2011:
+Файл проверки тестов - test/testfile.cpp
 Определение методов класса - src/lib.cpp
 Прецеденты класса - precendents
 Все что связано с проектом - library/

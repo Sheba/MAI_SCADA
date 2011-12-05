@@ -28,18 +28,21 @@ int TestDeleteVar()
 
 int main()
 {
-    unsigned int i;
     testLib.Create("testn","testv");
     testLib.Create("1",(int)1);
+    cout<<endl<<"Add testn1 - 8:"<<endl;
     if(TestAddVar()) std::cout<<"add error\n";
     else std::cout<<"non add error\n";
-    for(i=0;i<testLib.libr.size();i++) cout<<testLib.libr[i]->getName()<<" - "<<testLib.libr[i]->getValue()<<endl;
+    cout<<testLib.libr[0]->getName()<<" - "<<((StringVar*)testLib.libr[0])->getValue()<<endl;
+    cout<<testLib.libr[1]->getName()<<" - "<<((IntVar*)testLib.libr[1])->getValue()<<endl;
+    cout<<testLib.libr[2]->getName()<<" - "<<((IntVar*)testLib.libr[2])->getValue()<<endl;
     cout<<endl<<"Find 1:"<<endl;
     if(TestFindVar()) std::cout<<"find error\n";
     else std::cout<<"non find error\n";
     cout<<endl<<"Delete 1:"<<endl;
     if(TestDeleteVar()) std::cout<<"delete error\n";
     else std::cout<<"non delete error\n";
-    for(i=0;i<testLib.libr.size();i++) cout<<testLib.libr[i]->getName()<<" - "<<testLib.libr[i]->getValue()<<endl;
+    cout<<testLib.libr[0]->getName()<<" - "<<((StringVar*)testLib.libr[0])->getValue()<<endl;
+    cout<<testLib.libr[1]->getName()<<" - "<<((IntVar*)testLib.libr[1])->getValue()<<endl;
     return 0;
 }
