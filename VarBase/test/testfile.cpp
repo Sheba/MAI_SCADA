@@ -20,7 +20,6 @@ int TestFindVar()
 
 int TestDeleteVar()
 {
-    //testLib.Create("2",(int)2);
     if(testLib.Delete("1")==1) return 1;
     if(testLib.Find("1")) return 1;
     return 0;
@@ -44,5 +43,6 @@ int main()
     else std::cout<<"non delete error\n";
     cout<<testLib.libr[0]->getName()<<" - "<<((StringVar*)testLib.libr[0])->getValue()<<endl;
     cout<<testLib.libr[1]->getName()<<" - "<<((IntVar*)testLib.libr[1])->getValue()<<endl;
+    testLib.Save();
     return 0;
 }

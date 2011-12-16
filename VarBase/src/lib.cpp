@@ -2,22 +2,25 @@
 
 DoubleVar::DoubleVar(string newName)
 {
+    mType=1;
     this->mName=newName;
 }
 
 IntVar::IntVar(string newName)
 {
+    mType=0;
     this->mName=newName;
 }
 
 StringVar::StringVar(string newName)
 {
+    mType=2;
     this->mName=newName;
 }
 
-Var* Var::getType()
+int Var::getType()
 {
-    return this;
+    return mType;
 }
 
 string Var::getName()
@@ -136,5 +139,18 @@ int Library::Load()
 
 int Library::Save()
 {
+    ofstream out("varbase.xml");
+    out<<"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"<<endl;
+    out<<"<library namelib=\"BlackLibrary\">"<<endl;
+    for(unsigned int i=0;i<libr.size();i++)
+    {
+        out<<"<variable name=\""<<libr[i]->getName()<<"\" value=\"";
+        int h=libr[i]->getType();
+        if(h==0) out<<((IntVar*)libr[i])->getValue()<<"\" type=\"int\">Переменная "<<i+1<<"</variable>"<<endl;
+        if(h==1) out<<((DoubleVar*)libr[i])->getValue()<<"\" type=\"double\">Переменная "<<i+1<<"</variable>"<<endl;
+        if(h==2) out<<((StringVar*)libr[i])->getValue()<<"\" type=\"string\">Переменная "<<i+1<<"</variable>"<<endl;
+    }
+    out<<"</library>"<<endl;
+    out.close();
     return 1;
 }
