@@ -9,8 +9,9 @@ class Var //переменная
 {
 protected:
     string mName;
+    int mType;
 public:
-    Var* getType();
+    int getType();
     string getName();
 };
 
@@ -45,7 +46,6 @@ class Library //библиотека
 {    
 public:
     vector <Var*> libr;//вектор переменных
-//public:
     Library(){}
     Var* Create(string Name, string beginValue);
     Var* Create(string Name, double beginValue);
