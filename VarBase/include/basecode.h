@@ -3,6 +3,7 @@
 #include <fstream>
 #include <cstring>
 #include <vector>
+#include <cstdlib>
 using namespace std;
 
 class Var //переменная
