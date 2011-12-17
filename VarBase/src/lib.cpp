@@ -134,6 +134,35 @@ Var* Library::Find(string Name)
 
 int Library::Load()
 {
+    ifstream in("varbase.xml");
+    char buf[64],sname[64],svalue[64],stype[64];
+    char name[64],value[64],type[64];
+    int lensn,lensv,lenst;
+    libr.clear();
+    cout<<endl;
+    while(1)
+    {
+        in>>buf;
+        memset(name,0,sizeof(name));
+        memset(value,0,sizeof(value));
+        memset(type,0,sizeof(type));
+        if(in.eof()) break;
+        if(!strcmp(buf,"<variable"))
+        {
+            in>>sname;
+            lensn=strlen(sname);
+            in>>svalue;
+            lensv=strlen(svalue);
+            in>>stype;
+            lenst=strlen(stype);
+            for(int i=6;i<lensn-1;i++) name[i-6]=sname[i];
+            for(int i=7;i<lensv-1;i++) value[i-7]=svalue[i];
+            for(int i=6;i<lenst-22;i++) type[i-6]=stype[i];
+            if(!strcmp(type,"int")) Create(name,atoi(value));
+            if(!strcmp(type,"double")) Create(name,atof(value));
+            if(!strcmp(type,"string")) Create(name,value);
+        }
+    }
     return 1;
 }
 

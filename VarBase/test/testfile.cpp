@@ -29,7 +29,7 @@ int main()
 {
     testLib.Create("testn","testv");
     testLib.Create("1",(int)1);
-    cout<<endl<<"Add testn1 - 8:"<<endl;
+    cout<<"Add testn1 - 8:"<<endl;
     if(TestAddVar()) std::cout<<"add error\n";
     else std::cout<<"non add error\n";
     cout<<testLib.libr[0]->getName()<<" - "<<((StringVar*)testLib.libr[0])->getValue()<<endl;
@@ -44,5 +44,9 @@ int main()
     cout<<testLib.libr[0]->getName()<<" - "<<((StringVar*)testLib.libr[0])->getValue()<<endl;
     cout<<testLib.libr[1]->getName()<<" - "<<((IntVar*)testLib.libr[1])->getValue()<<endl;
     testLib.Save();
+    testLib.Load();
+    cout<<"After save and load"<<endl;
+    cout<<testLib.libr[0]->getName()<<" - "<<((StringVar*)testLib.libr[0])->getValue()<<endl;
+    cout<<testLib.libr[1]->getName()<<" - "<<((IntVar*)testLib.libr[1])->getValue()<<endl;
     return 0;
 }
