@@ -48,5 +48,12 @@ int main()
     cout<<"After save and load"<<endl;
     cout<<testLib.libr[0]->getName()<<" - "<<((StringVar*)testLib.libr[0])->getValue()<<endl;
     cout<<testLib.libr[1]->getName()<<" - "<<((IntVar*)testLib.libr[1])->getValue()<<endl;
+    Library *shmL;
+    shmL=MakeSharedLibrary();
+    shmL=new Library;
+    shmL->Create("BB1","string");
+    shmL->Create("BLA","string");
+    shmL->Save();
+    shmdt(shmL);
     return 0;
 }

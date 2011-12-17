@@ -1,4 +1,10 @@
 #include"../include/basecode.h"
+#include<sys/types.h>
+#include<sys/ipc.h>
+#include<sys/shm.h>
+#define SHMSZ 2097152
+
+key_t SharedMemoryKey=27153925;
 
 DoubleVar::DoubleVar(string newName)
 {
@@ -182,4 +188,16 @@ int Library::Save()
     out<<"</library>"<<endl;
     out.close();
     return 1;
+}
+
+Library* MakeSharedLibrary()
+{
+    int shmid;
+    if((shmid=shmget(SharedMemoryKey,SHMSZ, IPC_CREAT | 0666))<0)
+    {
+        return NULL;
+    }
+    Library *shml;
+    shml=(Library *)shmat(shmid,NULL,0);
+    return shml;
 }
