@@ -1,23 +1,32 @@
 #include"../include/basecode.h"
+#include<sys/types.h>
+#include<sys/ipc.h>
+#include<sys/shm.h>
+#define SHMSZ 2097152
+
+key_t SharedMemoryKey=27153925;
 
 DoubleVar::DoubleVar(string newName)
 {
+    mType=1;
     this->mName=newName;
 }
 
 IntVar::IntVar(string newName)
 {
+    mType=0;
     this->mName=newName;
 }
 
 StringVar::StringVar(string newName)
 {
+    mType=2;
     this->mName=newName;
 }
 
-Var* Var::getType()
+int Var::getType()
 {
-    return this;
+    return mType;
 }
 
 string Var::getName()
@@ -131,10 +140,64 @@ Var* Library::Find(string Name)
 
 int Library::Load()
 {
+    ifstream in("varbase.xml");
+    char buf[64],sname[64],svalue[64],stype[64];
+    char name[64],value[64],type[64];
+    int lensn,lensv,lenst;
+    libr.clear();
+    cout<<endl;
+    while(1)
+    {
+        in>>buf;
+        memset(name,0,sizeof(name));
+        memset(value,0,sizeof(value));
+        memset(type,0,sizeof(type));
+        if(in.eof()) break;
+        if(!strcmp(buf,"<variable"))
+        {
+            in>>sname;
+            lensn=strlen(sname);
+            in>>svalue;
+            lensv=strlen(svalue);
+            in>>stype;
+            lenst=strlen(stype);
+            for(int i=6;i<lensn-1;i++) name[i-6]=sname[i];
+            for(int i=7;i<lensv-1;i++) value[i-7]=svalue[i];
+            for(int i=6;i<lenst-22;i++) type[i-6]=stype[i];
+            if(!strcmp(type,"int")) Create(name,atoi(value));
+            if(!strcmp(type,"double")) Create(name,atof(value));
+            if(!strcmp(type,"string")) Create(name,value);
+        }
+    }
     return 1;
 }
 
 int Library::Save()
 {
+    ofstream out("varbase.xml");
+    out<<"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"<<endl;
+    out<<"<library namelib=\"BlackLibrary\">"<<endl;
+    for(unsigned int i=0;i<libr.size();i++)
+    {
+        out<<"<variable name=\""<<libr[i]->getName()<<"\" value=\"";
+        int h=libr[i]->getType();
+        if(h==0) out<<((IntVar*)libr[i])->getValue()<<"\" type=\"int\">Переменная "<<i+1<<"</variable>"<<endl;
+        if(h==1) out<<((DoubleVar*)libr[i])->getValue()<<"\" type=\"double\">Переменная "<<i+1<<"</variable>"<<endl;
+        if(h==2) out<<((StringVar*)libr[i])->getValue()<<"\" type=\"string\">Переменная "<<i+1<<"</variable>"<<endl;
+    }
+    out<<"</library>"<<endl;
+    out.close();
     return 1;
+}
+
+Library* MakeSharedLibrary()
+{
+    int shmid;
+    if((shmid=shmget(SharedMemoryKey,SHMSZ, IPC_CREAT | 0666))<0)
+    {
+        return NULL;
+    }
+    Library *shml;
+    shml=(Library *)shmat(shmid,NULL,0);
+    return shml;
 }
