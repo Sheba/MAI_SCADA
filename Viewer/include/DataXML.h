@@ -1,35 +1,24 @@
 //класс для XML файла
 
-class DataXML
+/*class DataXML
 { 
  char* path;
- LINE* pL[];
+ 
+ Line* pL[];
  int dIL;
- STRING* pS[];
+ 
+ String* pS[];
  int dIS;
- DIGIT* pD[];
+ 
+ Digit* pD[];
  int dID;
 
  public:
-  int setPath(char* nPath)
-  {
-   if ((nPath==NULL) || ( nPath==" ")) return 1;
-   path=nPath;
-   return 0;
-  }
-  char* getPath()
-  {
-   return path;
-  }
-
- int loadXML()
- {
-  if ((getPath()==" ") || ( getPath()==NULL)) return 1;
-  ifstream in(getPath());
-  in.close();
- }
-
- int ReadLineXML(){};
- int ReadSTRINGXML(){};
- int ReadDIGIT(){};
+  int setPath(char* nPath);
+  char* getPath();
+  int loadXML();
+  int ReadLineXML(){};
+  int ReadStringXML(){};
+  int ReadDigitXML(){};
 };
+*/

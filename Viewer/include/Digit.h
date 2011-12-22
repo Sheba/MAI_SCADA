@@ -1,19 +1,15 @@
 //класс для чисел
-class DIGIT
+#include <QtGui/QApplication>
+#include "../include/mainwindow.h"
+//#include "../include/Digit.h"
+class Digit//: public Shape
 {
  double value;
 
  public:
-  DIGIT(){};
+  Digit(){};
 
-  int setDigit(double nDigit)
-  {
-   value=nDigit;
-   return 0;
-  }
-
-  double getDigit()
-  {
-   return value;
-  }
+  int setDigit(double nDigit);
+  double getDigit();
+  QString show();
 };
