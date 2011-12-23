@@ -40,7 +40,7 @@ void MainWindow::paintEvent(QPaintEvent *)
     Digit d1;
     d1.setDigit(20.3124);
     QPainter p1(this);
-    //p1.drawEllipse(40, 40, 10, 5);
+    //p1.drawEllipse(40, 40, 10, 5);                                                                    ё                                                                                                                                                                                                                                   Ё
 
     int i;
 
@@ -53,7 +53,7 @@ void MainWindow::paintEvent(QPaintEvent *)
     l1.sety2(200);
     l1.setcolor(0);
     l1.show(&p1);
-    s1.setData("Жопа Naxuj");
+    s1.setData("Stroka проверки на вывод");
     p1.drawText (200, 120, s1.show());
     p1.drawText (100, 120, d1.show());
 }
