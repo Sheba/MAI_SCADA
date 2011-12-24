@@ -2,22 +2,36 @@
 #include <iostream>
 #include <qtextstream.h>
 
-using namespace std;
-int Digit::setDigit(double nDigit)
+Digit::Digit(string name)
+{
+ Library l;
+ IntVar *v;
+ l.Load();
+ if((v=(IntVar*)l.Find(name))==0)
+ {
+  l.Create(name, 69);
+  l.Save();
+  v=(IntVar*)l.Find(name);
+ }
+ setDigit(v->getValue());
+}
+
+int Digit::setDigit(int nDigit)
 {
  value=nDigit;
  return 0;
 }
 
-double Digit::getDigit()
+int Digit::getDigit()
 {
  return value;
 }
  
-QString Digit::show()
+void Digit::show(QPainter *p, int x, int y)
 {
  QString a;
  QTextStream str(&a);
  str<<value;
- return a;
+ p->drawText(x,y,a);
 }
+

@@ -6,17 +6,17 @@
 
 class String
 {
- int dlc;
+ int x, y; //координаты в окне
  char* data;
 
  public:
   String(){};
   String(char *mas);
-  
-  int setDlc(int ndlc);
-  int getDlc();
+
   int setData(char* ndata);
+  int setX(int nx);
+  int setY(int ny);
   char* getData();
-  QString show();
+  void show(QPainter *p);
 };
 #endif

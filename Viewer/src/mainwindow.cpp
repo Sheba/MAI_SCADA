@@ -1,5 +1,5 @@
 #include "../include/mainwindow.h"
-#include "ui_mainwindow.h"
+//#include "ui_mainwindow.h"
 #include <qpainter.h>
 #include <qgraphicsscene.h>
 #include "../include/circle.h"
@@ -37,10 +37,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::paintEvent(QPaintEvent *)
 {
-    Digit d1;
-    d1.setDigit(20.3124);
+    Digit d1("d1");
+    //d1.setDigit(20.3124);
     QPainter p1(this);
-    //p1.drawEllipse(40, 40, 10, 5);                                                                    ё                                                                                                                                                                                                                                   Ё
+    //p1.drawEllipse(40, 40, 10, 5);
 
     int i;
 
@@ -53,9 +53,13 @@ void MainWindow::paintEvent(QPaintEvent *)
     l1.sety2(200);
     l1.setcolor(0);
     l1.show(&p1);
-    s1.setData("Stroka проверки на вывод");
-    p1.drawText (200, 120, s1.show());
-    p1.drawText (100, 120, d1.show());
+    s1.setData("Test по-русски");
+    s1.setX(200);
+    s1.setY(120);
+    s1.show(&p1);
+    d1.show(&p1, 100, 200);
+    //p1.drawText (200, 120, s1.show());
+    //p1.drawText (100, 120, d1.show());
 }
 
 void MainWindow::on_pushButton_clicked()
