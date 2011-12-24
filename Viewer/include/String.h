@@ -1,30 +1,22 @@
 //класс строка
-class STRING
+#ifndef STRING_H
+#define STRING_H
+#include <QString>
+#include <qpainter.h>
+
+class String
 {
  int dlc;
  char* data;
 
  public:
-  STRING(){};
-  int setDlc(int nDlc)
-  {
-   dlc=nDlc;
-   return 0;
-  }
-
-  int getDlc()
-  {
-   return dlc;
-  }
-
-  int setData(char* nData)
-  {
-   data=nData;
-   return 0;
-  }
-
-  char* getData()
-  {
-   return data;
-  }
+  String(){};
+  String(char *mas);
+  
+  int setDlc(int ndlc);
+  int getDlc();
+  int setData(char* ndata);
+  char* getData();
+  QString show();
 };
+#endif
