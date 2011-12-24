@@ -2,4 +2,5 @@
 <library namelib="BlackLibrary">
 <variable name="BB1" value="string" type="string">Переменная 1</variable>
 <variable name="BLA" value="string" type="string">Переменная 2</variable>
+<variable name="d1" value="123" type="int">Переменная 3</variable>
 </library>
