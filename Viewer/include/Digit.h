@@ -1,15 +1,18 @@
 //класс для чисел
 #include <QtGui/QApplication>
 #include "../include/mainwindow.h"
-//#include "../include/Digit.h"
+#include "../VarBase/include/basecode.h"
+#include <cstring>
+
 class Digit//: public Shape
 {
- double value;
+ int value;
 
  public:
-  Digit(){};
+  Digit(string name);
 
-  int setDigit(double nDigit);
-  double getDigit();
-  QString show();
+  //void Load(string name);
+  int setDigit(int nDigit);
+  int getDigit();
+  void show(QPainter *p, int x, int y);
 };

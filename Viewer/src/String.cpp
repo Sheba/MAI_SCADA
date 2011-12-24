@@ -1,19 +1,8 @@
 #include "../include/String.h"
 
-String::String(char *mas)
+String::String(char* mas)
 {
     data=mas;
-}
-
-int String::setDlc(int ndlc)
-{
- dlc=ndlc;
- return 0;
-}
-
-int String::getDlc()
-{
- return dlc;
 }
 
 int String::setData(char* ndata)
@@ -27,9 +16,22 @@ char* String::getData()
  return data;
 }
 
-QString String::show()
+int String::setX(int nx)
+{
+ x=nx;
+ return 0;
+}
+
+int String::setY(int ny)
+{
+ y=ny;
+ return 0;
+}
+
+void String::show(QPainter *p)
 {
  QString a;
  a=QString::fromLocal8Bit(data);
- return a;
+ p->drawText(x,y,a);
+ //return a;
 }
