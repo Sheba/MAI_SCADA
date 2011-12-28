@@ -1,9 +1,16 @@
 //библиотека
+#ifndef BASECODE_H
+#define BASECODE_H
 #include <iostream>
 #include <fstream>
 #include <cstring>
 #include <vector>
 #include <cstdlib>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#define SHMSZ 2097152
+
 using namespace std;
 
 class Var //переменная
@@ -55,4 +62,9 @@ public:
     int Delete(string Name);
     int Load();
     int Save();
+    //friend
 };
+Library *MkSM();
+
+//void DtSM(Library *l);
+#endif

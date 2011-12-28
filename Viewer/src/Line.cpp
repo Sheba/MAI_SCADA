@@ -2,14 +2,33 @@
 #include "../include/mainwindow.h"
 #include "../include/Line.h"
 
-Line::Line(int nx1, int nx2, int ny1, int ny2, int ncolor)
+Line::Line(string nx1,  int nx1v,
+           string ny1,  int ny1v,
+           string nx2,  int nx2v,
+           string ny2,  int ny2v,
+                        QColor ncolv)
 {
-    x1=nx1;
-    x2=nx2;
-    y1=ny1;
-    y2=ny2;
-    color=ncolor;
+ x1=getVarFromBase(nx1, nx1v);
+ y1=getVarFromBase(ny1, ny1v);
+ x2=getVarFromBase(nx2, nx2v);
+ y2=getVarFromBase(ny2, ny2v);
+ color=ncolv;
 }
+
+int Line::getVarFromBase(string name, int newval)
+{
+ IntVar *v;
+ lib=MkSM();
+ lib->Load();
+ if((v=(IntVar*)lib->Find(name))==0)
+ {
+  lib->Create(name, newval);
+  lib->Save();
+  v=(IntVar*)lib->Find(name);
+ }
+ return (v->getValue());
+}
+
 
 int Line::setx1(int nx1)
 {
@@ -61,20 +80,15 @@ int Line::setcolor(int ncolor)
  return 0;
 }
 
-int Line::getcolor()
+QColor Line::getcolor()
 {
  return color;
 }
 
-void Line::show(QPainter *painter)
+void Line::show(QPainter *p)
 {
- Shape::show();
+ //Shape::show();
  QPen pen(color);
- painter->setPen(pen);
- painter->drawLine(x1, y1, x2, y2);   
+ p->setPen(pen);
+ p->drawLine(x1, y1, x2, y2);
 }
-
-void Line::hide()
-{
- Shape::hide();
-} 
