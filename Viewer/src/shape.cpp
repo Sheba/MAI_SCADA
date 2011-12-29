@@ -4,12 +4,12 @@ Shape::Shape()
 {
 }
 
-Shape::Shape(int initUID, int initX, int initY, QColor initColour)
+Shape::Shape(int initUID, int initX, int initY, QColor initColor)
 {
     uid = initUID;
     x = initX;
     y = initY;
-    colour = initColour;
+    color = initColor;
 }
 
 void Shape::move(int newX, int newY)
@@ -29,9 +29,9 @@ void Shape::show()
     isVisible = true;
 }
 
-void Shape::setColour(QColor newColour)
+void Shape::setColor(QColor newColor)
 {
-    colour = newColour;
+    color = newColor;
 }
 
 void Shape::setUID(int newUID)

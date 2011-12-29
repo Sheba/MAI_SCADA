@@ -3,17 +3,19 @@
 #define LINE_H
 #include <qpainter.h>
 #include <QtGui/QApplication>
-#include "../include/shape.h"
+#include "../Viewer/include/shape.h"
+#include <cstring>
+//#include "../VarBase/include/basecode.h"
+//#include "../Viewer/include/shape.h"
 
 class Line: public Shape
 {
- int x1,x2;
- int y1,y2;
- int color;
-
  public:
-  Line(){};
-  Line(int nx1, int nx2, int ny1, int ny2, int ncolor);
+  Line(string nx1,  int nx1v,
+       string ny1,  int ny1v,
+       string nx2,  int nx2v,
+       string ny2,  int ny2v,
+                    QColor ncolv);
 
   int setx1(int nx1);
   int getx1();
@@ -24,8 +26,8 @@ class Line: public Shape
   int sety2(int ny2);
   int gety2();
   int setcolor(int ncolor);
-  int getcolor();
+  QColor getcolor();
   void show(QPainter *painter);
-  void hide();
+  int getVarFromBase(string name, int newval);
 };
 #endif
