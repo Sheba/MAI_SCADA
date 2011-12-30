@@ -12,12 +12,15 @@ String::String(string name, const char* ndata)
   lib->Save();
   v=(StringVar*)lib->Find(name);
  }
- setData(v->getValue().c_str());// c_str() переводит string в const char *
+ setData(name, v->getValue().c_str());// c_str() переводит string в const char *
 }
 
-void String::setData(const char* ndata)
+void String::setData(string name, const char* ndata)
 {
+ lib->Delete(name);
  data=ndata;
+ lib->Create(name, data);
+ lib->Save();
 }
 
 const char* String::getData()

@@ -30,10 +30,40 @@ int Line::getVarFromBase(string name, int newval)
 }
 
 
-int Line::setx1(int nx1)
+void Line::setx1(string name, int nx1)
 {
+ if(lib->Find(name)==0) return;
+ lib->Delete(name);
  x1=nx1;
- return 0;
+ lib->Create(name, x1);
+ lib->Save();
+}
+
+void Line::setx2(string name, int nx2)
+{
+ if(lib->Find(name)==0) return;
+ lib->Delete(name);
+ x2=nx2;
+ lib->Create(name, x2);
+ lib->Save();
+}
+
+void Line::sety1(string name, int ny1)
+{
+ if(lib->Find(name)==0) return;
+ lib->Delete(name);
+ y1=ny1;
+ lib->Create(name, y1);
+ lib->Save();
+}
+
+void Line::sety2(string name, int ny2)
+{
+ if(lib->Find(name)==0) return;
+ lib->Delete(name);
+ y2=ny2;
+ lib->Create(name, y2);
+ lib->Save();
 }
 
 int Line::getx1()
@@ -41,21 +71,9 @@ int Line::getx1()
  return x1;
 }
 
-int Line::setx2(int nx2)
-{
- x2=nx2;
- return 0;
-}
-
 int Line::getx2()
 {
  return x2;
-}
-
-int Line::sety1(int ny1)
-{
- y1=ny1;
- return 0;
 }
 
 int Line::gety1()
@@ -63,21 +81,14 @@ int Line::gety1()
  return y1;
 }
 
-int Line::sety2(int ny2)
-{
- y2=ny2;
- return 0;
-}
-
 int Line::gety2()
 {
  return y2;
 }
 
-int Line::setcolor(int ncolor)
+void Line::setcolor(int ncolor)
 {
  color=ncolor;
- return 0;
 }
 
 QColor Line::getcolor()

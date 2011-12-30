@@ -13,13 +13,16 @@ IntDigit::IntDigit(string name, int newval)
   lib->Save();
   v=(IntVar*)lib->Find(name);
  }
- setDigit(v->getValue());
+ setDigit(name, v->getValue());
 }
 
-int IntDigit::setDigit(int nDigit)
+void IntDigit::setDigit(string name, int nDigit)
 {
+ if(lib->Find(name)==0) return;
+ lib->Delete(name);
  value=nDigit;
- return 0;
+ lib->Create(name, value);
+ lib->Save();
 }
 
 int IntDigit::getDigit()

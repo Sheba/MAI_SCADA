@@ -21,7 +21,8 @@ SOURCES += \
     ../Viewer/src/circle.cpp \
     ../VarBase/src/lib.cpp \
     ../Viewer/src/IntDigit.cpp \
-    ../Viewer/src/DoubleDigit.cpp
+    ../Viewer/src/DoubleDigit.cpp \
+    ../Viewer/src/Ellipse.cpp
 
 HEADERS  += \
     ../Viewer/include/String.h \
@@ -33,7 +34,8 @@ HEADERS  += \
     ../Viewer/include/circle.h \
     ../VarBase/include/basecode.h \
     ../Viewer/include/IntDigit.h \
-    ../Viewer/include/DoubleDigit.h
+    ../Viewer/include/DoubleDigit.h \
+    ../Viewer/include/Ellipse.h
 
 FORMS    +=
 

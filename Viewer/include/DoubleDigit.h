@@ -12,7 +12,7 @@ class DoubleDigit: public MainWindow
  public:
   DoubleDigit(string name, double newval);
 
-  void setDigit(double nDigit);
+  void setDigit(string name, double nDigit);
   double getDigit();
   void show(QPainter *p, int x, int y);
 };

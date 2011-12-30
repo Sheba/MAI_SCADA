@@ -12,10 +12,8 @@ class IntDigit: public MainWindow
  public:
   IntDigit(string name, int newval);
 
-  //void Load(string name);
-  int setDigit(int nDigit);
+  void setDigit(string name, int nDigit);
   int getDigit();
   void show(QPainter *p, int x, int y);
-  //void show(int x, int y);
  };
 #endif

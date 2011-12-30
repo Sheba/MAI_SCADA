@@ -19,7 +19,9 @@ public:
     int getVarFromBase(string name, int newval);
     void show(QPainter *p1);
     void hide();
-    void setR(int newR);
+    void setx(string name, int newx);
+    void sety(string name, int newy);
+    void setr(string name, int newr);
     void refresh(){}
 };
 

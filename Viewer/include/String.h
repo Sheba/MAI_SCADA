@@ -8,18 +8,14 @@
 
 class String: public MainWindow
 {
- //int x, y; //координаты в окне
  const char* data;
 
  public:
   String(string name, const char* ndata);
-  //String(char *mas);
 
   const char* getVarFromBase(string name, const char* newval);
-  void setData(const char* ndata);
-  //int setX(int nx);
-  //int setY(int ny);
-  const char * getData();
+  void setData(string name, const char* ndata);
+  const char* getData();
   void show(QPainter *p, int x, int y);
 };
 #endif

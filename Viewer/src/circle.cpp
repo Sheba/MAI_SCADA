@@ -38,9 +38,28 @@ int Circle::getVarFromBase(string name, int newval)
  return (v->getValue());
 }
 
-void Circle::setR(int newR)
+void Circle::setx(string name, int newx)
 {
-    r = newR;
+ lib->Delete(name);
+ x=newx;
+ lib->Create(name, x);
+ lib->Save();
+}
+
+void Circle::sety(string name, int newy)
+{
+ lib->Delete(name);
+ y=newy;
+ lib->Create(name, y);
+ lib->Save();
+}
+
+void Circle::setr(string name, int newr)
+{
+ lib->Delete(name);
+ r=newr;
+ lib->Create(name, r);
+ lib->Save();
 }
 
 void Circle::show(QPainter *painter) // TODO: a parameter indicating where to draw should be passed here

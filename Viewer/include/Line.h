@@ -17,15 +17,15 @@ class Line: public Shape
        string ny2,  int ny2v,
                     QColor ncolv);
 
-  int setx1(int nx1);
+  void setx1(string name, int nx1);
   int getx1();
-  int setx2(int nx2);
+  void setx2(string name, int nx2);
   int getx2();
-  int sety1(int ny1);
+  void sety1(string name, int ny1);
   int gety1();
-  int sety2(int ny2);
+  void sety2(string name, int ny2);
   int gety2();
-  int setcolor(int ncolor);
+  void setcolor(int ncolor);
   QColor getcolor();
   void show(QPainter *painter);
   int getVarFromBase(string name, int newval);

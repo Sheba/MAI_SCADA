@@ -13,12 +13,15 @@ DoubleDigit::DoubleDigit(string name, double newval)
   lib->Save();
   v=(DoubleVar*)lib->Find(name);
  }
- setDigit(v->getValue());
+ setDigit(name, v->getValue());
 }
 
-void DoubleDigit::setDigit(double nDigit)
+void DoubleDigit::setDigit(string name, double nDigit)
 {
+ lib->Delete(name);
  value=nDigit;
+ lib->Create(name, value);
+ lib->Save();
 }
 
 double DoubleDigit::getDigit()

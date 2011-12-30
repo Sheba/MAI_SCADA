@@ -7,6 +7,7 @@
 #include "../include/String.h"
 #include "../include/IntDigit.h"
 #include "../include/DoubleDigit.h"
+#include "../include/Ellipse.h"
 #include <ctime>
 
 #define rnd(a, b) (a)+random()%((b)-(a))
@@ -48,6 +49,7 @@ void MainWindow::paintEvent(QPaintEvent *)
  DoubleDigit d2("d2", 312.12);
  Square sq1("square1_x", 20, "square1_y", 20, "square1_a", 20, "RED");
  Circle cr1("circle1_x", 160, "circle1_y", 90, "circle1_r", 25, "GREEN");
+ Ellipse el1("ellipse1_x", 120, "ellipse1_y", 120, "ellipse1_r1", 20, "ellipse1_r2", 40, "BLUE");
  QPainter p1(this);
     //p1.drawEllipse(40, 40, 10, 5);
 
@@ -64,6 +66,8 @@ void MainWindow::paintEvent(QPaintEvent *)
  l1.show(&p1);
  sq1.show(&p1);
  cr1.show(&p1);
+ el1.show(&p1);
+ //l1.show(&p1);
     //s1.setData("Test по-русски");
     //s1.setX(200);
     //s1.setY(120);
