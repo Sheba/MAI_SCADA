@@ -56,10 +56,12 @@ void* funk(void* arg)
 {
     Library* cl=ConnectToSharedMemory();
     IntVar* iv=(IntVar*)cl->Find("Int_prim");
-    while(1)
+    int j=0;
+    while(j<15)
     {
         iv->setValue(iv->getValue()+1);
         sleep(2);
+        j++;
     }
 }
 
@@ -67,10 +69,12 @@ void* funk1(void *arg)
 {
     Library* cl=ConnectToSharedMemory();
     IntVar* iv=(IntVar*)cl->Find("Int_prim");
-    while(1)
+    int j=0;
+    while(j<15)
     {
         cout<<iv->getValue()<<endl;
         sleep(2);
+        j++;
     }
 }
 
@@ -117,9 +121,11 @@ int main()
     pthread_t pthread_id,ptid2;
     pthread_create(&pthread_id,NULL,funk,(void*)args[0]);
     pthread_create(&ptid2,NULL,funk1,(void*)args[1]);
-    while(1)
+    int j=0;
+    while(j<3)
     {
         sleep(10);
         cl->Save();
+        j++;
     }
 }
