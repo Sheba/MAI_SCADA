@@ -1,8 +1,9 @@
-//тесты
+//tests
 #include "pthread.h"
 #include "../include/basecode.h"
 Library testLib;
 string mVarName="testn1";
+string mSMVarName="BL2";
 
 int TestAddVar()
 {
@@ -26,27 +27,50 @@ int TestDeleteVar()
     return 0;
 }
 
+int SMTestAddVar()
+{
+   Library *L=ConnectToSharedMemory();
+   if(L->Find(mSMVarName)==NULL)
+   {
+      if(L->Create(mSMVarName,8)==NULL) return 1;
+   }
+   return 0;
+}
+
+int SMTestFindVar()
+{
+    Library *L=ConnectToSharedMemory();
+    if(L->Find("BL1")==NULL) return 1;
+    return 0;
+}
+
+int SMTestDeleteVar()
+{
+    Library *L=ConnectToSharedMemory();
+    if(L->Delete("BL1")==1) return 1;
+    if(L->Find("BL1")) return 1;
+    return 0;
+}
+
 void* funk(void* arg)
 {
     Library* cl=ConnectToSharedMemory();
-    int j=0;
-    while(j<15)
+    IntVar* iv=(IntVar*)cl->Find("Int_prim");
+    while(1)
     {
-        ((IntVar*)cl->libr[2])->setValue(((IntVar*)cl->libr[2])->getValue()+1);
+        iv->setValue(iv->getValue()+1);
         sleep(2);
-        j++;
     }
 }
 
 void* funk1(void *arg)
 {
-    int j=0;
-    while(j<15)
+    Library* cl=ConnectToSharedMemory();
+    IntVar* iv=(IntVar*)cl->Find("Int_prim");
+    while(1)
     {
-        Library* cl=ConnectToSharedMemory();
-        cout<<((IntVar*)cl->libr[2])->getValue()<<endl;
+        cout<<iv->getValue()<<endl;
         sleep(2);
-        j++;
     }
 }
 
@@ -81,17 +105,21 @@ int main()
     cout<<"After create library in shared memory and add 2 elements"<<endl;
     cout<<cl->libr[0]->getName()<<" - "<<((StringVar*)cl->libr[0])->getValue()<<endl;
     cout<<cl->libr[1]->getName()<<" - "<<((StringVar*)cl->libr[1])->getValue()<<endl;
+    if(SMTestAddVar()) std::cout<<"add error\n";
+    else std::cout<<"non add error\n";
+    if(SMTestFindVar()) std::cout<<"find error\n";
+    else std::cout<<"non find error\n";
+    if(SMTestDeleteVar()) std::cout<<"delete error\n";
+    else std::cout<<"non delete error\n";
     int args[2];
     args[0]=1;
     args[1]=2;
     pthread_t pthread_id,ptid2;
     pthread_create(&pthread_id,NULL,funk,(void*)args[0]);
     pthread_create(&ptid2,NULL,funk1,(void*)args[1]);
-    int j=0;
-    while(j<3)
+    while(1)
     {
         sleep(10);
         cl->Save();
-        j++;
     }
 }
