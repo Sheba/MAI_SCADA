@@ -1,6 +1,13 @@
-#include "../include/basecode.h"
-//#include "../Viewer/include/mainwindow.h"
-key_t SHMKey;
+//основной код библиотеки
+#include"../include/basecode.h"
+
+key_t SharedMemoryKey;
+
+void MakeKey()
+{
+    srand(time(0));
+    SharedMemoryKey=(key_t)rand();
+}
 
 DoubleVar::DoubleVar(string newName)
 {
@@ -186,14 +193,22 @@ int Library::Save()
     return 1;
 }
 
-Library* MkSM()
+Library* ConnectToSharedMemory()
 {
- int shmid;
- if((shmid=shmget(SHMKey,SHMSZ, IPC_CREAT | 0666))<0)
- {
-  return NULL;
- }
- Library *shml;
- shml=(Library *)shmat(shmid,NULL,0);
- return shml;
+    int shmid;
+    if((shmid=shmget(SharedMemoryKey,SHMSZ, IPC_CREAT | 0666))<0)
+    {
+        return NULL;
+    }
+    Library *shml;
+    shml=(Library *)shmat(shmid,NULL,0);
+    return shml;
+}
+
+Library* CreateLibrary()
+{
+    MakeKey();
+    Library* SMM=ConnectToSharedMemory();
+    Library* SML=new(SMM) Library;
+    return SML;
 }
