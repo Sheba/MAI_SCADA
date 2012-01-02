@@ -63,4 +63,7 @@ public:
     int Load();
     int Save();
 };
+
+Library* CreateLibrary();
+Library* ConnectToSharedMemory();
 #endif

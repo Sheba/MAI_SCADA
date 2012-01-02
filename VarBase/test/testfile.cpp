@@ -1,6 +1,6 @@
 //тесты
 #include "pthread.h"
-#include "../src/lib.cpp"
+#include "../include/basecode.h"
 Library testLib;
 string mVarName="testn1";
 
@@ -29,20 +29,24 @@ int TestDeleteVar()
 void* funk(void* arg)
 {
     Library* cl=ConnectToSharedMemory();
-    while(1)
+    int j=0;
+    while(j<15)
     {
         ((IntVar*)cl->libr[2])->setValue(((IntVar*)cl->libr[2])->getValue()+1);
         sleep(2);
+        j++;
     }
 }
 
 void* funk1(void *arg)
 {
-    while(1)
+    int j=0;
+    while(j<15)
     {
         Library* cl=ConnectToSharedMemory();
         cout<<((IntVar*)cl->libr[2])->getValue()<<endl;
         sleep(2);
+        j++;
     }
 }
 
@@ -83,9 +87,11 @@ int main()
     pthread_t pthread_id,ptid2;
     pthread_create(&pthread_id,NULL,funk,(void*)args[0]);
     pthread_create(&ptid2,NULL,funk1,(void*)args[1]);
-    while(1)
+    int j=0;
+    while(j<3)
     {
         sleep(10);
         cl->Save();
+        j++;
     }
 }
