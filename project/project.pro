@@ -11,34 +11,39 @@ TEMPLATE = app
 
 
 SOURCES += \
-    ../Viewer/src/String.cpp \
-    ../Viewer/src/square.cpp \
     ../Viewer/src/shape.cpp \
     ../Viewer/src/numberbox.cpp \
     ../Viewer/src/mainwindow.cpp \
     ../Viewer/src/main.cpp \
     ../Viewer/src/Line.cpp \
+    ../VarBase/src/basecode.cpp \
+    ../Viewer/src/Elements.cpp \
     ../Viewer/src/circle.cpp \
-    ../VarBase/src/lib.cpp \
+    ../Viewer/src/square.cpp \
+    ../Viewer/src/Ellipse.cpp \
     ../Viewer/src/IntDigit.cpp \
     ../Viewer/src/DoubleDigit.cpp \
-    ../Viewer/src/Ellipse.cpp
+    ../Viewer/src/String.cpp \
+    ../Viewer/src/Button.cpp
 
 HEADERS  += \
-    ../Viewer/include/String.h \
-    ../Viewer/include/square.h \
     ../Viewer/include/shape.h \
     ../Viewer/include/numberbox.h \
     ../Viewer/include/mainwindow.h \
     ../Viewer/include/Line.h \
-    ../Viewer/include/circle.h \
     ../VarBase/include/basecode.h \
+    ../Viewer/include/Elements.h \
+    ../Viewer/include/circle.h \
+    ../Viewer/include/square.h \
+    ../Viewer/include/Ellipse.h \
     ../Viewer/include/IntDigit.h \
     ../Viewer/include/DoubleDigit.h \
-    ../Viewer/include/Ellipse.h
+    ../Viewer/include/String.h \
+    ../Viewer/include/button.h
 
 FORMS    +=
 
 OTHER_FILES += \
     varbase.xml \
-    ../project-build-desktop/varbase.xml
+    ../project-build-desktop/varbase.xml \
+    ../project-build-desktop/elements.xml

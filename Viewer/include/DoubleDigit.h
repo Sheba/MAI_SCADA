@@ -1,20 +1,23 @@
 //классы для дробных чисел
 #ifndef DOUBLEDIGIT_H
 #define DOUBLEDIGIT_H
-#include "../include/mainwindow.h"
-#include "../VarBase/include/basecode.h"
+#include <qpainter.h>
+#include <QtGui/QApplication>
+#include "../Viewer/include/shape.h"
 #include <cstring>
+#include "../VarBase/include/basecode.h"
 
-class DoubleDigit: public MainWindow
+class DoubleDigit: public Shape
 {
- double value;
-
  public:
-  DoubleDigit(string name, double newval);
+  Library *lib;
 
-  void setDigit(string name, double nDigit);
-  double getDigit();
-  void show(QPainter *p, int x, int y);
+  DoubleDigit();
+
+  void setcolor(QColor ncolor);
+  void show(QPainter *painter);
+  int gfbi(string name);
+  double gfbd(string name);
 };
 
 #endif

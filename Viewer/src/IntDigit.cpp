@@ -1,41 +1,28 @@
 #include "../include/IntDigit.h"
 #include <qtextstream.h>
 
-IntDigit::IntDigit(string name, int newval)
-{
- //Library *l;
- IntVar *v;
- lib=MkSM();
- lib->Load();
- if((v=(IntVar*)lib->Find(name))==0)
- {
-  lib->Create(name, newval);
-  lib->Save();
-  v=(IntVar*)lib->Find(name);
- }
- setDigit(name, v->getValue());
-}
+IntDigit::IntDigit(){};
 
-void IntDigit::setDigit(string name, int nDigit)
-{
- if(lib->Find(name)==0) return;
- lib->Delete(name);
- value=nDigit;
- lib->Create(name, value);
- lib->Save();
-}
-
-int IntDigit::getDigit()
-{
- return value;
-}
-
-void IntDigit::show(QPainter *p, int x, int y)
+void IntDigit::show(QPainter *p)
 {
  QString a;
  QTextStream str(&a);
- str<<value;
- QPen pen("BLACK");
+ str<<ival;
+ QPen pen(color);
  p->setPen(pen);
  p->drawText(x, y, a);
+}
+
+int IntDigit::gfb(string name)
+{
+ IntVar *v;
+ lib=ConnectToSharedMemory();
+ //lib->Load();
+ v=(IntVar*)lib->Find(name);
+ return v->getValue();
+}
+
+void IntDigit::setcolor(QColor ncolor)
+{
+ color=ncolor;
 }

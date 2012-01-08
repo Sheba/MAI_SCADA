@@ -1,24 +1,21 @@
 #ifndef SQUARE_H
 #define SQUARE_H
-#include "shape.h"
 #include <qpainter.h>
+#include <QtGui/QApplication>
+#include "../Viewer/include/shape.h"
+#include <cstring>
+#include "../VarBase/include/basecode.h"
 
 class Square : public Shape
 {
-    int a;
-public:
-    Square(string nx, int nxv,
-           string ny, int nyv,
-           string na, int nav,
-                      QColor ncolv);
-    int getVarFromBase(string name, int newval);
-    //Square();
-    //Square(int initUID, int initX, int initY, int initA, QColor initColour=0);
-    //~Square();
-    void show(QPainter *p);
-    void hide();
-    void setA(int newA);
-    void refresh(){}
+ public:
+  Library *lib;
+
+  Square();
+
+  void setcolor(QColor ncolor);
+  void show(QPainter *painter);
+  int gfb(string name);
 };
 
 #endif // SQUARE_H

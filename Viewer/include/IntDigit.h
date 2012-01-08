@@ -1,19 +1,20 @@
 //класс для целых чисел
 #ifndef INTDIGIT_H
 #define INTDIGIT_H
-#include "../include/mainwindow.h"
-#include "../VarBase/include/basecode.h"
+#include <qpainter.h>
+#include <QtGui/QApplication>
+#include "../Viewer/include/shape.h"
 #include <cstring>
+#include "../VarBase/include/basecode.h"
 
-class IntDigit: public MainWindow
+class IntDigit: public Shape
 {
- int value;
-
  public:
-  IntDigit(string name, int newval);
+  Library *lib;
+  IntDigit();
 
-  void setDigit(string name, int nDigit);
-  int getDigit();
-  void show(QPainter *p, int x, int y);
+  void setcolor(QColor ncolor);
+  void show(QPainter *painter);
+  int gfb(string name);
  };
 #endif

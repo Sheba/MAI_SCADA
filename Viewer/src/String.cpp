@@ -1,50 +1,38 @@
 #include "../include/String.h"
 #include <qtextstream.h>
 
-String::String(string name, const char* ndata)
-{
- StringVar *v;
- lib=MkSM();
- lib->Load();
- if((v=(StringVar*)lib->Find(name))==0)
- {
-  lib->Create(name, ndata);
-  lib->Save();
-  v=(StringVar*)lib->Find(name);
- }
- setData(name, v->getValue().c_str());// c_str() переводит string в const char *
-}
+String::String(){};
 
-void String::setData(string name, const char* ndata)
-{
- lib->Delete(name);
- data=ndata;
- lib->Create(name, data);
- lib->Save();
-}
-
-const char* String::getData()
-{
- return data;
-}
-
-/*int String::setX(int nx)
-{
- x=nx;
- return 0;
-}
-
-int String::setY(int ny)
-{
- y=ny;
- return 0;
-}*/
-
-void String::show(QPainter *p, int x, int y)
+void String::show(QPainter *p)
 {
  QString a;
- a=QString::fromLocal8Bit(data);
- QPen pen("BLACK");
+ a=QString::fromLocal8Bit(sval);
+ QPen pen(color);
  p->setPen(pen);
  p->drawText(x,y,a);
 }
+
+int String::gfbi(string name)
+{
+ IntVar *v;
+ lib=ConnectToSharedMemory();
+ //lib->Load();
+ v=(IntVar*)lib->Find(name);
+ return v->getValue();
+}
+
+
+const char* String::gfbs(string name)
+{
+ StringVar *v;
+ lib=ConnectToSharedMemory();
+ //lib->Load();
+ v=(StringVar*)lib->Find(name);
+ return v->getValue().c_str();
+}
+
+void String::setcolor(QColor ncolor)
+{
+ color=ncolor;
+}
+

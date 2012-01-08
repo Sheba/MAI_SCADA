@@ -2,27 +2,20 @@
 #define CIRCLE_H
 #include <qpainter.h>
 #include <QtGui/QApplication>
-//#include "mainwindow.h"
-#include "shape.h"
+#include "../Viewer/include/shape.h"
+#include <cstring>
+#include "../VarBase/include/basecode.h"
 
-class Circle : public Shape
+class Circle: public Shape
 {
-    int r;
-public:
-    //Circle();
-    //Circle(int initUID, int initX, int initY, int initR, QColor initColour=0);
-    //~Circle();
-    Circle(string nx, int nxv,
-           string ny, int nyv,
-           string nr, int nrv,
-                      QColor ncolv);
-    int getVarFromBase(string name, int newval);
-    void show(QPainter *p1);
-    void hide();
-    void setx(string name, int newx);
-    void sety(string name, int newy);
-    void setr(string name, int newr);
-    void refresh(){}
+ public:
+  Library *lib;
+
+  Circle();
+
+  void setcolor(QColor ncolor);
+  void show(QPainter *painter);
+  int gfb(string name);
 };
 
 #endif // CIRCLE_H

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diargam name="ElBase">
+<element type="1" x1="line1_x1" y1="line1_y1" x2="line1_x2" y2="line1_y2" color="RED"> Элемент 1</element>
+<element type="1" x1="line1_x2" y1="line1_x1" x2="line1_y1" y2="line1_y2" color="GREEN"> Элемент 2</element>
+<element type="1" x1="line1_y1" y1="line1_x2" x2="line1_y2" y2="line1_x1" color="RED"> Элемент 3</element>
+<element type="2" x="circle1_x" y="circle1_y" r="circle1_r" color="BLUE"> Элемент 4</element>
+<element type="3" x="square1_x" y="square1_y" a="square1_a" color="BLACK"> Элемент 5</element>
+<element type="4" x="ellipse1_x" y="ellipse1_y" r1="ellipse1_r1" r2="ellipse1_r2" color="WHITE"> Элемент 6</element>
+<element type="5" x="ival1_x" y="ival1_y" ival="ival1" color="GREEN"> Элемент 7</element>
+<element type="6" x="dval1_x" y="dval1_y" dval="dval1" color="BLACK"> Элемент 8</element>
+<element type="7" x="sval1_x" y="sval1_y" sval="sval1" color="BLACK"> Элемент 9</element>
+</diagram>
