@@ -1,9 +1,16 @@
 //библиотека
+#ifndef BASECODE_H
+#define BASECODE_H
 #include <iostream>
 #include <fstream>
 #include <cstring>
 #include <vector>
 #include <cstdlib>
+#include<sys/types.h>
+#include<sys/ipc.h>
+#include<sys/shm.h>
+#include<ctime>
+#define SHMSZ 2097152
 using namespace std;
 
 class Var //переменная
@@ -16,7 +23,7 @@ public:
     string getName();
 };
 
-class IntVar:protected Var //целочисленная переменная
+class IntVar: Var //целочисленная переменная
 {
     int mValue;
 public:
@@ -25,7 +32,7 @@ public:
     void setValue(int newValue);
 };
 
-class StringVar:protected Var  //строковая переменная
+class StringVar: Var  //строковая переменная
 {
     string mValue;
 public:
@@ -34,7 +41,7 @@ public:
     void setValue(string newValue);
 };
 
-class DoubleVar:protected Var //переменная с плавующей точкой
+class DoubleVar: Var //переменная с плавующей точкой
 {
     double mValue;
 public:
@@ -56,3 +63,7 @@ public:
     int Load();
     int Save();
 };
+
+Library* CreateLibrary();
+Library* ConnectToSharedMemory();
+#endif

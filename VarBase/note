@@ -1,8 +1,7 @@
 4ый вариант: Аносов(cosmovolk@gmail.com), Петушков(dakil-nae@yandex.ru)
 Тесты для основных функций - test/testfile.cpp
-Диаграмма классов - diagram.png
+Диаграмма классов - doc/diagram.png
 Библиотечный файл - include/basecode.h
 Файл проверки тестов - test/testfile.cpp
-Определение методов класса - src/lib.cpp
-Прецеденты класса - precendents
-Все что связано с проектом - library/
+Определение методов класса - src/basecode.cpp
+Прецеденты класса - doc/precendents

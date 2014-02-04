@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<library namelib="BlackLibrary">
-<variable name="BB1" value="string" type="string">Переменная 1</variable>
-<variable name="BLA" value="string" type="string">Переменная 2</variable>
-</library>
