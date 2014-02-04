@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library namelib="BlackLibrary">
+<variable name="line1_x1" value="70" type="int">Переменная 1</variable>
+<variable name="line1_y1" value="100" type="int">Переменная 2</variable>
+<variable name="line1_x2" value="150" type="int">Переменная 3</variable>
+<variable name="line1_y2" value="250" type="int">Переменная 4</variable>
+<variable name="d1" value="128" type="int">Переменная 5</variable>
+<variable name="d2" value="312" type="double">Переменная 6</variable>
+<variable name="square1_x" value="20" type="int">Переменная 7</variable>
+<variable name="square1_y" value="20" type="int">Переменная 8</variable>
+<variable name="square1_a" value="20" type="int">Переменная 9</variable>
+<variable name="circle1_x" value="160" type="int">Переменная 10</variable>
+<variable name="circle1_y" value="90" type="int">Переменная 11</variable>
+<variable name="circle1_r" value="25" type="int">Переменная 12</variable>
+<variable name="string1" value="String проверка !№;%:?*" type="string">Переменная 13</variable>
+</library>
